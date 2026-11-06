@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Info</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="profile-page">
+        <a href="index.html" class="back-btn">&larr; Back</a>
+
+        <div class="profile-box">
+            <img id="charImg" class="profile-img" src="" alt="">
+
+            <div>
+                <h1 id="charName" class="profile-name"></h1>
+                <p id="charRealName" class="profile-real"></p>
+
+                <div class="profile-info">
+                    <p><strong>Birthday:</strong> <span id="charBirthday"></span></p>
+                    <p><strong>Age:</strong> <span id="charAge"></span></p>
+                    <p><strong>Cars:</strong> <span id="charCars"></span></p>
+                    <p><strong>Role:</strong> <span id="charBio"></span></p>
+                </div>
+
+                <p id="charQuote" class="quote"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // All the character info is stored here.
+        // To change something, just edit the text inside the quotes.
+        const characters = {
+
+           
+        };
+
+        // Get the character id from the link (example: profile.html?id=dom)
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        // Find that character (use Dom if nothing is found)
+        const char = characters[id] || characters["dom"];
+
+        // Put the info into the page
+        document.getElementById("charImg").src = char.img;
+        document.getElementById("charName").innerText = char.name;
+        document.getElementById("charRealName").innerText = char.realName;
+        document.getElementById("charBirthday").innerText = char.birthday;
+        document.getElementById("charAge").innerText = char.age;
+        document.getElementById("charCars").innerText = char.cars;
+        document.getElementById("charBio").innerText = char.bio;
+        document.getElementById("charQuote").innerText = '"' + char.quote + '"';
+    </script>
+</body>
+</html>
